@@ -16,6 +16,22 @@
   // const game = new Game();
   // game.getRandomPhrase().addPhraseToDisplay();
 
-const game = new Game();
-game.startGame();
-console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+// const game = new Game();
+// game.startGame();
+// console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+ let game;
+ game = new Game();
+
+ $('#btn__reset').on('click', () => {
+   game.startGame();
+ });
+
+/*
+This is the same as ---$('.key').on('click', (e)--- but using event delegation
+makes it dinamyc, assuring that the event will fire even if other buttons ow keys
+are added with JS.
+Also
+*/
+ $('.keyrow').on('click', '.key', (e) => {
+   game.handleInteraction(e);
+ });

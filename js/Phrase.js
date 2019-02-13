@@ -19,16 +19,23 @@ class Phrase {
     });
   }
 
-  checkLetter() {
-    // checks to see if the letter selected by the player matches a letter in the phrase
+  checkLetter(selectedLetter) {
+    let isLetter = false;
+    $('#phrase ul li').each((index, value) => {
+      let $value = $(value).text();
+      if(selectedLetter === $value) {
+        isLetter = true;
+      }
+    });
+    return isLetter;
   }
 
-  showMatchedLetter() {
-    /*
-    - Reveals the letter(s) on the board that matches the player's selection.
-    To reveal the matching letter(s), select all of the letter DOM elements that
-     have a CSS class name that matches the selected letter and replace each
-     selected element's hide CSS class with the show CSS class.
-    */
+  showMatchedLetter(selectedLetter) {
+    $('#phrase ul li').each(function() {
+      if ($(this).text() === selectedLetter) {
+        $(this).removeClass();
+        $(this).addClass('show');
+      }
+    });
   }
 }

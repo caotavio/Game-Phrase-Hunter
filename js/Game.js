@@ -24,7 +24,49 @@ class Game {
 
   startGame() {
     $('#overlay').hide();
-    this.activePhrase = new Phrase(this.getRandomPhrase());
+    this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
+  }
+
+  checkForWin() {
+    let letter = $("#phrase ul li[class*='hide letter']");
+    if (letter.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  removeLife() {
+    this.missed += 1;
+    let heart = $('#scoreboard ol li img');
+    if(this.missed < 5) {
+      heart.eq(this.missed - 1).attr('src', 'images/lostHeart.png');
+    } else {
+      this.gameOver();
+    }
+  }
+
+  gameOver(gameWon) {
+    $('#overlay').show();
+    let message = $('#game-over-message');
+    if (gameWon) {
+      message.parent().addClass('win');
+      message.text('You nailed it!');
+    } else {
+      message.parent().addClass('lose');
+      message.text('Better luck next time!');
+    }
+  }
+
+  handleInteraction(button) {
+    let target = button.target;
+    let letterClicked = this.activePhrase.checkLetter(target);
+    $(target).attr('disabled', true);
+    if (letterClicked === false) {
+      this.removeLife();
+    } else {
+      this.activePhrase.showMatchedLetter(target);
+    }
   }
 }
