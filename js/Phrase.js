@@ -3,6 +3,7 @@ class Phrase {
     this.phrase = phrase.toLowerCase();
   }
 
+// Adds a new list item for each letter of the active phrase.
   addPhraseToDisplay() {
     let arr = [...this.phrase];
     arr.forEach(letter => {
@@ -19,6 +20,8 @@ class Phrase {
     });
   }
 
+/*Checks if the letter selected by the user is present on the active phrase and
+returns a boolean */
   checkLetter(selectedLetter) {
     let isLetter = false;
     $('#phrase ul li').each((index, value) => {
@@ -30,6 +33,8 @@ class Phrase {
     return isLetter;
   }
 
+/* Shows the matched letter on the display if the user chooses one the the letters
+in the active phrase */
   showMatchedLetter(selectedLetter) {
     $('#phrase ul li').each(function() {
       if ($(this).text() === selectedLetter) {

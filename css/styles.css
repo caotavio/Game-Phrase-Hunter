@@ -111,8 +111,9 @@ button {
 
 .show {
   color: #fff;
-  background-color: #4ac0d5;
+  background-color: #4ad5bb;
   font-size: 20px;
+  font-weight: bold;
   height: 65px;
   width: 65px;
   padding: 20px 1px 0 1px;
@@ -131,14 +132,14 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: #2bef04;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
 }
 
 .wrong {
-  background: #f7a964;
+  background: #d31515;
   color: #FFFFFF;
 }
 
