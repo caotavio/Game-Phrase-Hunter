@@ -108,7 +108,7 @@ button {
 }
 
 
-
+/* Change made: added bold to font-weight */
 .show {
   color: #fff;
   background-color: #4ad5bb;
@@ -131,6 +131,7 @@ button {
   justify-content: center;
 }
 
+/* Change: background color to a red shade */
 .chosen {
   background: #2bef04;
   border-radius: 5px;
@@ -138,6 +139,7 @@ button {
   color: #FFFFFF;
 }
 
+/* Change: background color to a green shade */
 .wrong {
   background: #d31515;
   color: #FFFFFF;
